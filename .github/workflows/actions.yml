@@ -1,11 +1,25 @@
 name: Actions Workflows
 
 on:
-  repository_dispatch:
-    type: [build]
   push:
-  pull_request:
-    types: [closed,assigned,opened,reopened]
+    branches:
+      - master
+      - "feature/**"
+      - "!feature/featC"
+    # branches-ignore:
+    #   - ""
+    tags:
+    - v1.*
+    paths:
+      - "**.js"
+      - "docs/**"
+      - "!filename.js"
+
+  # repository_dispatch:
+  #   type: [build]
+  # push:
+  # pull_request:
+  #   types: [closed,assigned,opened,reopened]
 
 
 jobs:
